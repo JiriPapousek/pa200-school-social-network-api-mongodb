@@ -28,10 +28,10 @@ async def populate_db():
     course3 = await crud.create_course(db, course3)
     sleep(1)
 
-    student1 = schemas.UserCreate(username="jiri.pap@gmail.com", password="2aoRs2VHXuvPHQ", is_teacher=False)
-    student2 = schemas.UserCreate(username="chudovsky@mail.muni.cz", password="4aMfcVKkHLAHDA", is_teacher=False)
-    teacher1 = schemas.UserCreate(username="gesvindr@mail.muni.cz", password="rqB4N2pgVWLAW3", is_teacher=True)
-    teacher2 = schemas.UserCreate(username="jevocin@mail.muni.cz", password="oZzYb3tN7f8o5D", is_teacher=True)
+    student1 = schemas.UserCreate(username="jiri.pap@gmail.com", password="", is_teacher=False)
+    student2 = schemas.UserCreate(username="chudovsky@mail.muni.cz", password="", is_teacher=False)
+    teacher1 = schemas.UserCreate(username="gesvindr@mail.muni.cz", password="", is_teacher=True)
+    teacher2 = schemas.UserCreate(username="jevocin@mail.muni.cz", password="", is_teacher=True)
 
     student1 = await crud.create_user(db, student1)
     sleep(1)

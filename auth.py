@@ -2,7 +2,7 @@ from jose import JWTError, jwt
 from datetime import datetime, timedelta
 from crud import get_user, pwd_context
 from fastapi import Depends, status, HTTPException
-from schemas import Token, User
+from schemas import TokenData, User
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from database import db
 import os
@@ -56,7 +56,7 @@ async def get_current_user(token: str = Depends(oauth2_scheme)):
         username: str = payload.get("sub")
         if username is None:
             raise credentials_exception
-        token_data = Token(username=username)
+        token_data = TokenData(username=username)
     except JWTError:
         raise credentials_exception
     user = await get_user(db, username=token_data.username)

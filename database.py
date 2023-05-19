@@ -1,10 +1,6 @@
-from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
+import os
+import motor.motor_asyncio
 
-SQLALCHEMY_DATABASE_URL = "postgresql://user:password@postgresserver/db"
-
-engine = create_engine(SQLALCHEMY_DATABASE_URL)
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-
-Base = declarative_base()
+MONGODB_CONNECTION_STR = os.getenv("CUSTOMCONNSTR_MONGODB_CONNECTION_STR")
+client = motor.motor_asyncio.AsyncIOMotorClient(MONGODB_CONNECTION_STR)
+db = client.pa200db

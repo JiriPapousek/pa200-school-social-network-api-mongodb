@@ -1,0 +1,11 @@
+fastapi
+pydantic
+sqlalchemy
+passlib
+python-jose
+python-multipart
+uvicorn
+psycopg2
+bcrypt
+motor
+azure-servicebus
